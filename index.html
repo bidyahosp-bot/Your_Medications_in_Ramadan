@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>دليل أدوية رمضان</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: "Tahoma", sans-serif; direction: rtl; background:#f9f9f9; margin:0; padding:0; }
+    header { background:#006699; color:white; text-align:center; padding:15px; font-size:20px; font-weight:bold; }
+    .container { max-width:800px; margin:auto; background:white; padding:20px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
+    label { font-weight:bold; margin-top:10px; display:block; }
+    select, button { width:100%; padding:10px; margin-top:10px; border-radius:5px; border:1px solid #ccc; font-size:16px; }
+    .result { margin-top:20px; padding:15px; border-radius:5px; background:#eef; font-size:16px; }
+    .warning { background:#ffdddd; color:#a00; padding:10px; border-radius:5px; margin-top:10px; font-weight:bold; }
+    .video-link { display:inline-block; margin-top:10px; padding:8px 12px; background:#006699; color:white; text-decoration:none; border-radius:5px; }
+    footer { text-align:center; font-size:12px; color:#555; margin-top:20px; }
+    /* ✅ توحيد حجم الصور */
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain; /* يحافظ على الشكل داخل الإطار */
+      display: block;
+      margin: 10px auto;
+    }
+  </style>
+</head>
+<body>
+
+
+<header>دليل أدوية رمضان</header>
+
+<div class="container">
+  <label for="drug">اختر الدواء:</label>
+  <select id="drug">
+    <option value="">-- اختر الدواء --</option>
+
+    <optgroup label="أدوية السكري (أقراص)">
+      <option value="metformin">Glucophage (Metformin)</option>
+      <option value="glibenclamide">Melix (Glibenclamide)</option>
+      <option value="gliclazide">Diamicron MR (Gliclazide)</option>
+      <option value="sitagliptin">Sitagliptin (Januvia / Istavel)</option>
+      <option value="dapagliflozin">Dapagold (Dapagliflozin)</option>
+    </optgroup>
+
+    <optgroup label="أدوية السكري (أنسولين)">
+      <option value="insulin">Insulin (Actrapid / Mixtard / Lantus)</option>
+    </optgroup>
+
+    <optgroup label="أدوية الضغط">
+      <option value="verapamil">Caveril (Verapamil)</option>
+      <option value="nifedipine">Nifelat R (Nifedipine)</option>
+      <option value="amlodipine">Amlo 5 (Amlodipine)</option>
+    </optgroup>
+
+    <optgroup label="مدرات البول">
+      <option value="hydrochlorothiazide">Modrex (Hydrochlorothiazide)</option>
+      <option value="furosemide">Fusix (Furosemide)</option>
+    </optgroup>
+
+    <optgroup label="أدوية الغدة الدرقية">
+      <option value="levothyroxine">Euthyrox (Levothyroxine)</option>
+    </optgroup>
+
+    <optgroup label="أدوية الكولسترول">
+      <option value="rosuvastatin">Vazatin (Rosuvastatin)</option>
+      <option value="atorvastatin">Atstat (Atorvastatin)</option>
+      <option value="ezetimibe">Ezechol (Ezetimibe)</option>
+    </optgroup>
+
+    <optgroup label="أدوية الصرع">
+      <option value="levetiracetam">Keppra (Levetiracetam)</option>
+      <option value="lamotrigine">Lamictal (Lamotrigine)</option>
+      <option value="valproate">Depakine (Sodium Valproate)</option>
+      <option value="carbamazepine">Tegretol (Carbamazepine)</option>
+    </optgroup>
+
+    <optgroup label="بخاخات الربو">
+      <option value="relvar">RELVAR ELLIPTA (Fluticasone/Vilanterol)</option>
+      <option value="flohale">Flohale (Fluticasone Propionate)</option>
+      <option value="symbicort">Symbicort (Budesonide/Formoterol)</option>
+      <option value="asthalin">Asthalin (Salbutamol)</option>
+    </optgroup>
+
+    <optgroup label="المضادات الحيوية والفيروسية">
+      <option value="nitrofurantoin">Uvanim retard (Nitrofurantoin)</option>
+      <option value="amoxicillin">AMYN-250 (Amoxicillin)</option>
+      <option value="cef">Cefalexin</option>
+      <option value="valacyclovir">VALTREX (Valacyclovir)</option>
+      <option value="ciprofloxacin">Omacip (Ciprofloxacin)</option>
+      <option value="omadrocin">Omadrocin</option>
+      <option value="metronidazole">SUPRAZOLE (Metronidazole)</option>
+    </optgroup>
+  </select>
+
+  <button onclick="showInfo()">تأكيد</button>
+
+  <div id="output" class="result"></div>
+</div>
+
+<footer>
+  فكرة: نجوى الهاشمي | تنفيذ: جوهرة الحجري
+</footer>
+
+<script>
+function showInfo() {
+  const drug = document.getElementById("drug").value;
+  let message = "";
+  let warning = "";
+  let video = "";
+  let image = "";
+
+  switch(drug) {
+    // السكري
+    case "metformin":
+      message = "بعد الفطور وبعد السحور، والجرعة الأكبر بعد الفطور. تناول الحبة بعد الأكل.";
+      warning = "⚠️ لتجنب اضطراب المعدة تناول الدواء بعد الطعام.";
+      video = "https://youtu.be/k1_0-VyckHY";
+      image = "images/Metformin.png";
+      break;
+    case "glibenclamide":
+      message = "يؤخذ مع الإفطار، ونصف جرعة مع السحور.";
+      warning = "⚠️ قد يسبب هبوط السكر، يفضل استبداله بغليكلازايد.";
+      video = "https://youtu.be/k1_0-VyckHY";
+      image = "images/Glibenclamide.png";
+      break;
+    case "gliclazide":
+      message = "يؤخذ مع الإفطار، ونصف جرعة مع السحور.";
+      warning = "⚠️ راقب أعراض انخفاض السكر مثل الرعشة والدوخة.";
+      video = "https://youtu.be/k1_0-VyckHY";
+      image = "images/gliclazide.png";
+      break;
+    case "sitagliptin":
+      message = "مرة واحدة يوميًا بعد الإفطار أو العشاء.";
+      warning = "⚠️ راقب مستوى السكر في الدم بشكل دوري.";
+      video = "https://youtu.be/k1_0-VyckHY";
+      image = "images/Sitagliptin.png";
+      break;
+    case "dapagliflozin":
+      message = "يؤخذ بعد الإفطار مباشرة مع كوب ماء. تجنب أخذه قبل السحور لتقليل خطر الجفاف.";
+      warning = "⚠️ راقب مستوى السكر وتجنب الجفاف.";
+      video = "https://youtu.be/k1_0-VyckHY";
+      image = "images/dapagliflozin.png";
+      break;
+    case "insulin":
+      message = "<strong>Actrapid (سريع المفعول):</strong> على الفطور، أو (إفطار + 30–50% من جرعة المساء على السحور).<br>" +
+                "<strong>Mixtard (مخلوط):</strong> مرتين يوميًا: جرعة الإفطار، و25–50% من جرعة السحور. تُحذف جرعة الغداء إذا كانت ثلاث مرات.<br>" +
+                "<strong>Lantus (طويل المفعول):</strong> قبل النوم (15–30% من الجرعة العادية).";
+      warning = "⚠️ يجب متابعة مستوى السكر بشكل دوري واستشارة الطبيب لتعديل الجرعات.";
+      video = "https://youtu.be/eAjo892YQz4";
+      image = "images/insulin.png";
+      break;
+
+        // الضغط
+    case "verapamil":
+      message = "مرة أو مرتين يوميًا بعد الفطور وبعد السحور.";
+      warning = "⚠️ تجنب تناول الجريب فروت.";
+      video = "https://youtu.be/KyxjuDLMaqo";
+      image = "images/amlo.png";
+      break;
+
+    case "nifedipine":
+      message = "مرة أو مرتين يوميًا بعد الفطور وبعد السحور.";
+      warning = "⚠️ يُخزن بعيدًا عن الضوء والرطوبة.";
+      video = "https://youtu.be/KyxjuDLMaqo";
+      image = "images/amlo.png";
+      break;
+
+    case "amlodipine":
+      message = "مرة أو مرتين يوميًا بعد الفطور وبعد السحور.";
+      warning = "⚠️ تجنب تناول الجريب فروت.";
+      video = "https://youtu.be/KyxjuDLMaqo";
+      image = "images/amlo.png";
+      break;
+
+    // مدرات البول
+    case "hydrochlorothiazide":
+      message = "مرة واحدة بعد الفطور.";
+      warning = "⚠️ لا تؤخذ وقت السحور لتجنب الجفاف.";
+      video = "https://youtu.be/ZLMRzGTMRaU";
+      image = "images/modrex.png";
+      break;
+
+    case "furosemide":
+      message = "مرة واحدة بعد الفطور أو مرتين حسب تعليمات الطبيب.";
+      warning = "⚠️ راقب ضغط الدم وتجنب الجفاف.";
+      video = "https://youtu.be/ZLMRzGTMRaU";
+      image = "images/modrex.png";
+      break;
+
+    // الغدة الدرقية
+    case "levothyroxine":
+      message = "مرة واحدة يوميًا: بعد ساعتين من العشاء أو قبل السحور بنصف ساعة.";
+      warning = "⚠️ يجب تناوله على معدة فارغة بنفس الوقت يوميًا.";
+      video = "https://youtu.be/UWPRRC6imKs";
+      image = "images/thyroxine.png";
+      break;
+
+    // الكولسترول
+    case "rosuvastatin":
+      message = "يؤخذ بعد الإفطار أو السحور.";
+      warning = "⚠️ راقب أعراض ألم العضلات.";
+      video = "https://youtu.be/KyxjuDLMaqo";
+      image = "images/atorvastatin.png";
+      break;
+
+    case "atorvastatin":
+      message = "يؤخذ بعد الإفطار أو السحور.";
+      warning = "⚠️ يُفضل تناوله في نفس الوقت يوميًا.";
+      video = "https://youtu.be/KyxjuDLMaqo";
+      image = "images/atorvastatin.png";
+      break;
+
+    case "ezetimibe":
+      message = "يؤخذ بعد الإفطار.";
+      warning = "⚠️ يُستخدم غالبًا مع أدوية أخرى لخفض الكولسترول.";
+      video = "https://youtu.be/KyxjuDLMaqo";
+      image = "images/atorvastatin.png";
+      break;
+
+    // الصرع
+    case "levetiracetam":
+      message = "مرتين يوميًا: بعد الإفطار وبعد السحور.";
+      warning = "⚠️ لا توقف العلاج فجأة.";
+      video = "https://youtu.be/iSBOKhCwcok";
+      image = "images/keppra.png";
+      break;
+
+    case "lamotrigine":
+      message = "مرة أو مرتين يوميًا: بعد الإفطار أو السحور.";
+      warning = "⚠️ راقب الأعراض الجانبية مثل الطفح الجلدي.";
+      video = "https://youtu.be/iSBOKhCwcok";
+      image = "images/keppra.png";
+      break;
+
+    case "valproate":
+      message = "مرتين يوميًا: بعد الإفطار وبعد السحور.";
+      warning = "⚠️ لا توقف العلاج فجأة.";
+      video = "https://youtu.be/iSBOKhCwcok";
+      image = "images/keppra.png";
+      break;
+
+    case "carbamazepine":
+      message = "مرتين يوميًا: بعد الإفطار وبعد السحور.";
+      warning = "⚠️ راقب الأعراض الجانبية مثل الدوخة.";
+      video = "https://youtu.be/iSBOKhCwcok";
+      image = "images/keppra.png";
+      break;
+
+    // بخاخات الربو
+    case "relvar":
+      message = "مرة واحدة يوميًا: بعد الإفطار أو قبل السحور.";
+      warning = "⚠️ التزم بالجرعة اليومية.";
+      image = "images/asthalin.png";
+      break;
+
+    case "flohale":
+      message = "مرة أو مرتين يوميًا: بعد الإفطار وبعد السحور.";
+      warning = "⚠️ استشر الطبيب عند ظهور أعراض جانبية.";
+      image = "images/asthalin.png";
+      break;
+
+    case "symbicort":
+      message = "مرتين يوميًا: بعد الإفطار وبعد السحور.";
+      warning = "⚠️ لا توقف العلاج فجأة.";
+      image = "images/asthalin.png";
+      break;
+
+    case "asthalin":
+      message = "يُستخدم عند الحاجة في نهار رمضان.";
+      warning = "⚠️ استخدم البخاخ المنقذ فورًا عند الحاجة.";
+      image = "images/asthalin.png";
+      break;
+
+    // المضادات الحيوية والفيروسية
+    case "nitrofurantoin":
+      message = "مرتين يوميًا: بعد الإفطار وبعد السحور.";
+      warning = "⚠️ أكمل فترة العلاج كاملة.";
+      image = "images/valtrex.png";
+      break;
+
+    case "amoxicillin":
+      message = "ثلاث مرات يوميًا: بعد الإفطار، منتصف الليل، قبل السحور.";
+      warning = "⚠️ أكمل فترة العلاج كاملة.";
+      image = "images/valtrex.png";
+      break;
+
+    case "cef":
+      message = "مرتين يوميًا: بعد الإفطار وبعد السحور.";
+      warning = "⚠️ أكمل فترة العلاج كاملة.";
+      image = "images/valtrex.png";
+      break;
+
+    case "valacyclovir":
+      message = "مرتين يوميًا: بعد الإفطار وبعد السحور.";
+      warning = "⚠️ أكمل فترة العلاج كاملة.";
+      image = "images/valtrex.png";
+      break;
+
+    case "ciprofloxacin":
+      message = "مرتين يوميًا: بعد الإفطار وبعد السحور.";
+      warning = "⚠️ أكمل فترة العلاج كاملة.";
+      image = "images/valtrex.png";
+      break;
+
+    case "omadrocin":
+      message = "مرة واحدة يوميًا: بعد الإفطار.";
+      warning = "⚠️ أكمل فترة العلاج كاملة.";
+      image = "images/valtrex.png";
+      break;
+
+    case "metronidazole":
+      message = "مرتين أو ثلاث مرات يوميًا حسب وصف الطبيب.";
+      warning = "⚠️ أكمل فترة العلاج كاملة.";
+      image = "images/valtrex.png";
+      break;
+
+    default:
+      message = "يرجى اختيار الدواء من القائمة.";
+  }
+
+  document.getElementById("output").innerHTML =
+    "<p><strong>التعليمات:</strong><br>" + message + "</p>" +
+    (warning ? "<div class='warning'>" + warning + "</div>" : "") +
+    (video ? "<a class='video-link' href='" + video + "' target='_blank'>🎥 شاهد الفيديو</a>" : "") +
+    (image ? "<p><img src='" + image + "' alt='صورة الدواء'></p>" : "") +
+    "<p>✅ يرجى الالتزام بالتوقيت المحدد لضمان سلامتك.</p>" +
+    "<p style='color:green'>الخدمة مجانية، الهدف مساعدتك على الصيام بأمان.</p>" +
+    "<p style='font-size:12px;color:#555'>⚠️ هذه المعلومات عامة وتوعوية فقط، استشر طبيبك قبل تعديل أي جرعة.</p>";
+}
+</script>
